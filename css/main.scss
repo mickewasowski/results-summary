@@ -1,0 +1,212 @@
+@import './variables';
+
+$font-path: "../assets/fonts/static/HankenGrotesk-VariableFont_wght.ttf";
+
+
+@font-face {
+    src: url($font-path) format('ttf');
+    font-family: 'Hanken Grotesk';
+    font-weight: map-get($map: $font-weights, $key: "regular");
+}
+
+@mixin fullWindow {
+    width: 100%;
+    height: 100vh;
+}
+
+@function linearGradient($direction, $color1, $color2, $opacity1, $opacity2, $percentage1, $percentage2) {
+    @return linear-gradient(
+        to $direction,
+        rgba($color1, $opacity1) $percentage1,
+        rgba($color2, $opacity2) $percentage2
+    );
+}
+
+@mixin spanStyles($background-color, $text-color, $font-weight) {
+    background-color: rgba($background-color, 0.1);
+
+    div > p {
+        color: rgba($text-color, 0.8);
+        font-weight: map-get($map: $font-weights, $key: $font-weight);
+    }
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    @include fullWindow;
+    font-family: 'Hanken Grotesk';
+}
+
+main {
+    @include fullWindow;
+    display: flex;
+}
+
+section {
+    // width: 70%;
+    // height: 50%;
+    width: 60rem;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 9px 26px 68px -30px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 9px 26px 68px -30px rgba(0,0,0,0.51);
+    -moz-box-shadow: 9px 26px 68px -30px rgba(0,0,0,0.51);
+
+    #result-container,
+    #summary-container {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #result-container {
+        background: linearGradient(bottom,  $light-slate-blue, $light-royal-blue, 1, 1, 5%, 95%);
+        color: $white;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        h4 {
+            color: rgba($white, .7);
+            font-size: x-large;
+        }
+
+        #total-score {
+            background: linearGradient(bottom, $violet-blue, $persian-blue, .8, 0.2, 25%, 60%);
+            backdrop-filter: blur(200px);
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                margin: 0;
+            }
+
+            & :nth-child(1) {
+                font-size: 4rem;
+            }
+            & :nth-child(2) {
+                color: rgba($white, .5);
+            }
+        }
+
+        #score-text {
+            display: flex;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            h3 {
+                font-size: x-large;
+                letter-spacing: .1rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                text-align: center;
+                color: rgba($white, .7);
+                margin-top: 0;
+            }
+        }
+    }
+
+    #summary-container {
+        align-items: flex-start;
+        padding: 3rem 0 3rem 3rem;
+
+        h4 {
+            font-size: x-large;
+            color: $dark-gray-blue;
+        }
+
+        #summary-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: center;
+
+            #Reaction-span,
+            #Memory-span,
+            #Verbal-span,
+            #Visual-span {
+                margin-bottom: 1rem;
+                padding: 0 1rem 0 1rem;
+                border-radius: 10px;
+
+                & div > img {
+                    padding-right: .5rem;
+                }
+            }
+
+            #Reaction-span {
+                @include spanStyles($light-red, $light-red, medium);
+            }
+
+            
+
+            #Memory-span {
+                @include spanStyles($orange-yellow, $orange-yellow, medium);
+            }
+
+            #Verbal-span {
+                @include spanStyles($green-teal, $green-teal, medium);
+            }
+
+            #Visual-span {
+                @include spanStyles($cobalt-blue, $cobalt-blue, medium);
+            }
+
+            #Reaction-score,
+            #Memory-score,
+            #Verbal-score,
+            #Visual-score {
+                color: rgba($dark-gray-blue, .6);
+                font-weight: map-get($map: $font-weights, $key: medium);
+            }
+
+            #Reaction-score > strong,
+            #Memory-score > strong,
+            #Verbal-score > strong,
+            #Visual-score > strong {
+                color: $dark-gray-blue;
+            }
+        }
+        #summary-content > span {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #summary-content > span > div {
+            display: flex;
+        }
+
+        button {
+            display: inline;
+            width: 90%;
+            border: none;
+            padding: 1rem;
+            margin: 2rem 0 2rem 0;
+            border-radius: 40px;
+            background-color: $dark-gray-blue;
+            color: $white;
+            font-size: large;
+        }
+    }
+}

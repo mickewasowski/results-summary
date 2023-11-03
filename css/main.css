@@ -53,7 +53,7 @@ section #result-container #total-score {
   background: linear-gradient(to bottom, rgba(78, 33, 202, 0.8) 25%, rgba(36, 33, 202, 0.2) 60%);
   -webkit-backdrop-filter: blur(200px);
           backdrop-filter: blur(200px);
-  width: 40%;
+  width: 50%;
   height: 40%;
   border-radius: 50%;
   display: flex;
@@ -119,31 +119,223 @@ section #summary-container #summary-content #Visual-span div > img {
 }
 section #summary-container #summary-content #Reaction-span {
   background-color: rgba(255, 87, 87, 0.1);
+  width: 80%;
+  position: relative;
+  box-sizing: content-box;
+  border: 2px solid transparent;
+}
+section #summary-container #summary-content #Reaction-span::before, section #summary-container #summary-content #Reaction-span::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Reaction-span::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid rgba(255, 87, 87, 0.2);
+  border-left: 2px solid rgba(255, 87, 87, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Reaction-span::after {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid rgba(255, 87, 87, 0.2);
+  border-right: 2px solid rgba(255, 87, 87, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Reaction-span div > p {
   color: rgba(255, 87, 87, 0.8);
   font-weight: 700;
+  position: relative;
+  width: 4rem;
+}
+section #summary-container #summary-content #Reaction-span div > p::before, section #summary-container #summary-content #Reaction-span div > p::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Reaction-span div > p::before {
+  top: 27px;
+  left: -46px;
+  border-bottom: 2px solid rgba(255, 87, 87, 0.2);
+  border-left: 2px solid rgba(255, 87, 87, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Reaction-span div > p::after {
+  top: 27px;
+  right: -290px;
+  border-bottom: 2px solid rgba(255, 87, 87, 0.2);
+  border-right: 2px solid rgba(255, 87, 87, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Memory-span {
   background-color: rgba(255, 176, 31, 0.1);
+  width: 80%;
+  position: relative;
+  box-sizing: content-box;
+  border: 2px solid transparent;
+}
+section #summary-container #summary-content #Memory-span::before, section #summary-container #summary-content #Memory-span::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Memory-span::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid rgba(255, 176, 31, 0.2);
+  border-left: 2px solid rgba(255, 176, 31, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Memory-span::after {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid rgba(255, 176, 31, 0.2);
+  border-right: 2px solid rgba(255, 176, 31, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Memory-span div > p {
   color: rgba(255, 176, 31, 0.8);
   font-weight: 700;
+  position: relative;
+  width: 4rem;
+}
+section #summary-container #summary-content #Memory-span div > p::before, section #summary-container #summary-content #Memory-span div > p::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Memory-span div > p::before {
+  top: 27px;
+  left: -46px;
+  border-bottom: 2px solid rgba(255, 176, 31, 0.2);
+  border-left: 2px solid rgba(255, 176, 31, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Memory-span div > p::after {
+  top: 27px;
+  right: -290px;
+  border-bottom: 2px solid rgba(255, 176, 31, 0.2);
+  border-right: 2px solid rgba(255, 176, 31, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Verbal-span {
   background-color: rgba(0, 189, 145, 0.1);
+  width: 80%;
+  position: relative;
+  box-sizing: content-box;
+  border: 2px solid transparent;
+}
+section #summary-container #summary-content #Verbal-span::before, section #summary-container #summary-content #Verbal-span::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Verbal-span::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid rgba(0, 189, 145, 0.2);
+  border-left: 2px solid rgba(0, 189, 145, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Verbal-span::after {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid rgba(0, 189, 145, 0.2);
+  border-right: 2px solid rgba(0, 189, 145, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Verbal-span div > p {
   color: rgba(0, 189, 145, 0.8);
   font-weight: 700;
+  position: relative;
+  width: 4rem;
+}
+section #summary-container #summary-content #Verbal-span div > p::before, section #summary-container #summary-content #Verbal-span div > p::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Verbal-span div > p::before {
+  top: 27px;
+  left: -46px;
+  border-bottom: 2px solid rgba(0, 189, 145, 0.2);
+  border-left: 2px solid rgba(0, 189, 145, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Verbal-span div > p::after {
+  top: 27px;
+  right: -290px;
+  border-bottom: 2px solid rgba(0, 189, 145, 0.2);
+  border-right: 2px solid rgba(0, 189, 145, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Visual-span {
   background-color: rgba(17, 37, 212, 0.1);
+  width: 80%;
+  position: relative;
+  box-sizing: content-box;
+  border: 2px solid transparent;
+}
+section #summary-container #summary-content #Visual-span::before, section #summary-container #summary-content #Visual-span::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Visual-span::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid rgba(17, 37, 212, 0.2);
+  border-left: 2px solid rgba(17, 37, 212, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Visual-span::after {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid rgba(17, 37, 212, 0.2);
+  border-right: 2px solid rgba(17, 37, 212, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Visual-span div > p {
   color: rgba(17, 37, 212, 0.8);
   font-weight: 700;
+  position: relative;
+  width: 4rem;
+}
+section #summary-container #summary-content #Visual-span div > p::before, section #summary-container #summary-content #Visual-span div > p::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Visual-span div > p::before {
+  top: 27px;
+  left: -46px;
+  border-bottom: 2px solid rgba(17, 37, 212, 0.2);
+  border-left: 2px solid rgba(17, 37, 212, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Visual-span div > p::after {
+  top: 27px;
+  right: -290px;
+  border-bottom: 2px solid rgba(17, 37, 212, 0.2);
+  border-right: 2px solid rgba(17, 37, 212, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Reaction-score,
 section #summary-container #summary-content #Memory-score,

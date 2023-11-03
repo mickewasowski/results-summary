@@ -24,10 +24,64 @@ $font-path: "../assets/fonts/static/HankenGrotesk-VariableFont_wght.ttf";
 
 @mixin spanStyles($background-color, $text-color, $font-weight) {
     background-color: rgba($background-color, 0.1);
+    width: 80%;
+    position: relative;
+    box-sizing: content-box;
+    border: 2px solid transparent;
+
+    &::before, &::after {
+        display: block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        position: absolute;
+    }
+
+    &::before {
+        top: -2px;
+        left: -2px;
+        border-top: 2px solid rgba($background-color, .2);
+        border-left: 2px solid rgba($background-color, .2);
+        border-radius: 3px;
+    }
+
+    &::after {
+        top: -2px;
+        right: -2px;
+        border-top: 2px solid rgba($background-color, .2);
+        border-right: 2px solid rgba($background-color, .2);
+        border-radius: 3px;
+    }
 
     div > p {
         color: rgba($text-color, 0.8);
         font-weight: map-get($map: $font-weights, $key: $font-weight);
+        position: relative;
+        width: 4rem;
+
+        &::before, &::after {
+            display: block;
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+        }
+    
+        &::before {
+            top: 27px;
+            left: -46px;
+            border-bottom: 2px solid rgba($background-color, .2);
+            border-left: 2px solid rgba($background-color, .2);
+            border-radius: 3px;
+        }
+    
+        &::after {
+            top: 27px;
+            right: -290px;
+            border-bottom: 2px solid rgba($background-color, .2);
+            border-right: 2px solid rgba($background-color, .2);
+            border-radius: 3px;
+        }
     }
 }
 
@@ -45,8 +99,6 @@ main {
 }
 
 section {
-    // width: 70%;
-    // height: 50%;
     width: 60rem;
     display: flex;
     flex-direction: row;
@@ -83,7 +135,7 @@ section {
         #total-score {
             background: linearGradient(bottom, $violet-blue, $persian-blue, .8, 0.2, 25%, 60%);
             backdrop-filter: blur(200px);
-            width: 40%;
+            width: 50%;
             height: 40%;
             border-radius: 50%;
             display: flex;

@@ -74,14 +74,24 @@ $font-path: "../assets/fonts/static/HankenGrotesk-VariableFont_wght.ttf";
             border-left: 2px solid rgba($background-color, .2);
             border-radius: 3px;
         }
-    
-        &::after {
-            top: 27px;
-            right: -290px;
-            border-bottom: 2px solid rgba($background-color, .2);
-            border-right: 2px solid rgba($background-color, .2);
-            border-radius: 3px;
-        }
+    }
+}
+
+@mixin bottomRightCorner($background-color) {
+    &::before, &::after {
+        display: block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        position: absolute;
+    }
+
+    &::after {
+        top: 27px;
+        right: -18px;
+        border-bottom: 2px solid rgba($background-color, .2);
+        border-right: 2px solid rgba($background-color, .2);
+        border-radius: 3px;
     }
 }
 
@@ -108,6 +118,12 @@ section {
     -webkit-box-shadow: 9px 26px 68px -30px rgba(0,0,0,0.51);
     -moz-box-shadow: 9px 26px 68px -30px rgba(0,0,0,0.51);
 
+    @media (max-width: $layout-small) {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
     #result-container,
     #summary-container {
         display: flex;
@@ -115,6 +131,10 @@ section {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+
+        @media (max-width: $layout-small) {
+            width: 100%;
+        }
     }
 
     #result-container {
@@ -126,6 +146,12 @@ section {
         justify-content: center;
         align-items: center;
         align-content: center;
+
+        @media (max-width: $layout-small) {
+            height: 50%;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
 
         h4 {
             color: rgba($white, .7);
@@ -181,6 +207,16 @@ section {
         align-items: flex-start;
         padding: 3rem 0 3rem 3rem;
 
+        @media (max-width: $layout-small) {
+            height: 60%;
+            padding: 0;
+            align-items: center;
+
+            h4 {
+                width: 85%;
+            }
+        }
+
         h4 {
             font-size: x-large;
             color: $dark-gray-blue;
@@ -193,6 +229,10 @@ section {
             justify-content: space-between;
             align-content: center;
 
+            @media (max-width: $layout-small) {
+                width: 100%;
+            }
+
             #Reaction-span,
             #Memory-span,
             #Verbal-span,
@@ -200,6 +240,11 @@ section {
                 margin-bottom: 1rem;
                 padding: 0 1rem 0 1rem;
                 border-radius: 10px;
+
+                @media (max-width: $layout-small) {
+                    width: 100%;
+                    align-self: center;
+                }
 
                 & div > img {
                     padding-right: .5rem;
@@ -209,8 +254,6 @@ section {
             #Reaction-span {
                 @include spanStyles($light-red, $light-red, medium);
             }
-
-            
 
             #Memory-span {
                 @include spanStyles($orange-yellow, $orange-yellow, medium);
@@ -230,6 +273,25 @@ section {
             #Visual-score {
                 color: rgba($dark-gray-blue, .6);
                 font-weight: map-get($map: $font-weights, $key: medium);
+
+                position: relative;
+                width: 4rem;
+            }
+
+            #Reaction-score {
+               @include bottomRightCorner($light-red);
+            }
+
+            #Memory-score {
+                @include bottomRightCorner($orange-yellow);
+            }
+
+            #Verbal-score {
+                @include bottomRightCorner($green-teal);
+            }
+
+            #Visual-score {
+                @include bottomRightCorner($cobalt-blue);
             }
 
             #Reaction-score > strong,
@@ -259,6 +321,10 @@ section {
             background-color: $dark-gray-blue;
             color: $white;
             font-size: large;
+
+            @media (max-width: $layout-small) {
+                width: 85%;
+            }
         }
     }
 }

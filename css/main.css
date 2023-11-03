@@ -27,6 +27,13 @@ section {
   -webkit-box-shadow: 9px 26px 68px -30px rgba(0, 0, 0, 0.51);
   -moz-box-shadow: 9px 26px 68px -30px rgba(0, 0, 0, 0.51);
 }
+@media (max-width: 960px) {
+  section {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+}
 section #result-container,
 section #summary-container {
   display: flex;
@@ -34,6 +41,12 @@ section #summary-container {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+@media (max-width: 960px) {
+  section #result-container,
+  section #summary-container {
+    width: 100%;
+  }
 }
 section #result-container {
   background: linear-gradient(to bottom, #7857ff 5%, #2e2be9 95%);
@@ -44,6 +57,13 @@ section #result-container {
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+@media (max-width: 960px) {
+  section #result-container {
+    height: 50%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
 }
 section #result-container h4 {
   color: rgba(255, 255, 255, 0.7);
@@ -92,6 +112,16 @@ section #summary-container {
   align-items: flex-start;
   padding: 3rem 0 3rem 3rem;
 }
+@media (max-width: 960px) {
+  section #summary-container {
+    height: 60%;
+    padding: 0;
+    align-items: center;
+  }
+  section #summary-container h4 {
+    width: 85%;
+  }
+}
 section #summary-container h4 {
   font-size: x-large;
   color: hsl(224, 30%, 27%);
@@ -103,6 +133,11 @@ section #summary-container #summary-content {
   justify-content: space-between;
   align-content: center;
 }
+@media (max-width: 960px) {
+  section #summary-container #summary-content {
+    width: 100%;
+  }
+}
 section #summary-container #summary-content #Reaction-span,
 section #summary-container #summary-content #Memory-span,
 section #summary-container #summary-content #Verbal-span,
@@ -110,6 +145,15 @@ section #summary-container #summary-content #Visual-span {
   margin-bottom: 1rem;
   padding: 0 1rem 0 1rem;
   border-radius: 10px;
+}
+@media (max-width: 960px) {
+  section #summary-container #summary-content #Reaction-span,
+  section #summary-container #summary-content #Memory-span,
+  section #summary-container #summary-content #Verbal-span,
+  section #summary-container #summary-content #Visual-span {
+    width: 100%;
+    align-self: center;
+  }
 }
 section #summary-container #summary-content #Reaction-span div > img,
 section #summary-container #summary-content #Memory-span div > img,
@@ -165,13 +209,6 @@ section #summary-container #summary-content #Reaction-span div > p::before {
   border-left: 2px solid rgba(255, 87, 87, 0.2);
   border-radius: 3px;
 }
-section #summary-container #summary-content #Reaction-span div > p::after {
-  top: 27px;
-  right: -290px;
-  border-bottom: 2px solid rgba(255, 87, 87, 0.2);
-  border-right: 2px solid rgba(255, 87, 87, 0.2);
-  border-radius: 3px;
-}
 section #summary-container #summary-content #Memory-span {
   background-color: rgba(255, 176, 31, 0.1);
   width: 80%;
@@ -218,13 +255,6 @@ section #summary-container #summary-content #Memory-span div > p::before {
   left: -46px;
   border-bottom: 2px solid rgba(255, 176, 31, 0.2);
   border-left: 2px solid rgba(255, 176, 31, 0.2);
-  border-radius: 3px;
-}
-section #summary-container #summary-content #Memory-span div > p::after {
-  top: 27px;
-  right: -290px;
-  border-bottom: 2px solid rgba(255, 176, 31, 0.2);
-  border-right: 2px solid rgba(255, 176, 31, 0.2);
   border-radius: 3px;
 }
 section #summary-container #summary-content #Verbal-span {
@@ -275,13 +305,6 @@ section #summary-container #summary-content #Verbal-span div > p::before {
   border-left: 2px solid rgba(0, 189, 145, 0.2);
   border-radius: 3px;
 }
-section #summary-container #summary-content #Verbal-span div > p::after {
-  top: 27px;
-  right: -290px;
-  border-bottom: 2px solid rgba(0, 189, 145, 0.2);
-  border-right: 2px solid rgba(0, 189, 145, 0.2);
-  border-radius: 3px;
-}
 section #summary-container #summary-content #Visual-span {
   background-color: rgba(17, 37, 212, 0.1);
   width: 80%;
@@ -330,19 +353,70 @@ section #summary-container #summary-content #Visual-span div > p::before {
   border-left: 2px solid rgba(17, 37, 212, 0.2);
   border-radius: 3px;
 }
-section #summary-container #summary-content #Visual-span div > p::after {
-  top: 27px;
-  right: -290px;
-  border-bottom: 2px solid rgba(17, 37, 212, 0.2);
-  border-right: 2px solid rgba(17, 37, 212, 0.2);
-  border-radius: 3px;
-}
 section #summary-container #summary-content #Reaction-score,
 section #summary-container #summary-content #Memory-score,
 section #summary-container #summary-content #Verbal-score,
 section #summary-container #summary-content #Visual-score {
   color: rgba(48, 59, 90, 0.6);
   font-weight: 700;
+  position: relative;
+  width: 4rem;
+}
+section #summary-container #summary-content #Reaction-score::before, section #summary-container #summary-content #Reaction-score::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Reaction-score::after {
+  top: 27px;
+  right: -18px;
+  border-bottom: 2px solid rgba(255, 87, 87, 0.2);
+  border-right: 2px solid rgba(255, 87, 87, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Memory-score::before, section #summary-container #summary-content #Memory-score::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Memory-score::after {
+  top: 27px;
+  right: -18px;
+  border-bottom: 2px solid rgba(255, 176, 31, 0.2);
+  border-right: 2px solid rgba(255, 176, 31, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Verbal-score::before, section #summary-container #summary-content #Verbal-score::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Verbal-score::after {
+  top: 27px;
+  right: -18px;
+  border-bottom: 2px solid rgba(0, 189, 145, 0.2);
+  border-right: 2px solid rgba(0, 189, 145, 0.2);
+  border-radius: 3px;
+}
+section #summary-container #summary-content #Visual-score::before, section #summary-container #summary-content #Visual-score::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+section #summary-container #summary-content #Visual-score::after {
+  top: 27px;
+  right: -18px;
+  border-bottom: 2px solid rgba(17, 37, 212, 0.2);
+  border-right: 2px solid rgba(17, 37, 212, 0.2);
+  border-radius: 3px;
 }
 section #summary-container #summary-content #Reaction-score > strong,
 section #summary-container #summary-content #Memory-score > strong,
@@ -368,4 +442,9 @@ section #summary-container button {
   background-color: hsl(224, 30%, 27%);
   color: hsl(0, 0%, 100%);
   font-size: large;
+}
+@media (max-width: 960px) {
+  section #summary-container button {
+    width: 85%;
+  }
 }
